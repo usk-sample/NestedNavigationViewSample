@@ -15,14 +15,17 @@ struct ContentView: View {
     
     var body: some View {
       
-        TabView(selection: $selection) {
-            FirstView(showDetail: self.$showDetail, name: self.$name)
-                .tabItem { Label("First", systemImage: "cloud.fill") }
-                .tag(1)
-            SecondView(showDetail: self.$showDetail, name: self.$name)
-                .tabItem { Label("Second", systemImage: "moon.fill") }
-                .tag(2)
-        }.sheet(isPresented: self.$showDetail) {
+        NavigationView {
+            TabView(selection: $selection) {
+                FirstView(showDetail: self.$showDetail, name: self.$name)
+                    .tabItem { Label("First", systemImage: "cloud.fill") }
+                    .tag(1)
+                SecondView(showDetail: self.$showDetail, name: self.$name)
+                    .tabItem { Label("Second", systemImage: "moon.fill") }
+                    .tag(2)
+            }
+        }
+        .sheet(isPresented: self.$showDetail) {
             DetailView(name: self.$name)
         }
         

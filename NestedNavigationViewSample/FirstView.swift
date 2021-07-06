@@ -14,18 +14,16 @@ struct FirstView: View {
     
     var body: some View {
         
-        NavigationView {
-            VStack {
-                Text("Hello, First!")
-                
-                Button("next") {
-                    self.name = "First"
-                    self.showDetail = true
-                }
-                
-                NavigationLink.init("Navigation", destination: DetailView.init(name: .constant("Navigation")))
-                                                
+        VStack {
+            Text("Hello, First!")
+            
+            Button("next") {
+                self.name = "First"
+                self.showDetail = true
             }
+            
+            NavigationLink.init("Navigation", destination: DetailView.init(name: .constant("Navigation")))
+                                            
         }
 
     }

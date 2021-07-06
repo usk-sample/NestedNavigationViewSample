@@ -15,7 +15,7 @@ struct DetailView: View {
         VStack {
             Text("Hello, Detail!")
             Text("from \(name)")
-        }
+        }.navigationBarTitle(Text("Detail"), displayMode: .inline)
     }
 }
 
